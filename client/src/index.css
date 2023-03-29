@@ -7,3 +7,50 @@
 
 /* font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif; */
+
+/* nav bar CSS */
+.navbar{
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 6px -6px gray;
+  --webkit-box-shadow: 0 8px 6px -6px gray;
+  border-bottom: 0.3px solid gray !important;
+  padding: 0 0 1px 0;
+}
+.container-fluid{
+  background-color: darkcyan;
+  padding: 9px;
+}
+
+.nav-link{
+  font-weight: 300 !important;
+  color: white;
+}
+.active{
+  border-bottom: 2px solid black;
+}
+.navbar-brand{
+  text-transform:none;
+  /* font-style: italic; */
+  font-weight: 600;
+  font-family: 'roboto',sans-serif;
+  letter-spacing: 3px;
+}
+/* footer */
+.footer{
+  color: white;
+  background-color:darkcyan;
+  padding: 1px;
+}
+
+.footer a{
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+.footer a:hover{
+  color: black;
+  border-bottom: 1px solid black;
+}

@@ -91,13 +91,3 @@ font-family: 'Poppins', sans-serif; */
 .bg-dark{
   background-color: darkcyan !important;
 }
-
-/* register */
-.register{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70vh;
-  flex-direction: column;
-}
-

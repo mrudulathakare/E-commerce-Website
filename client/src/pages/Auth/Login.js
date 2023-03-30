@@ -4,29 +4,26 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import "../../styles/AuthStyles.css";
-const Register = () => {
-    const [name,setName] = useState("")
+const Login = () => {
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
-    const [phone,setPhone] = useState("")
-    const [address,setAddress] = useState("")
+    
     const navigate = useNavigate()
 
-// form function
+    // form function
 const handleSubmit = async(e) =>{
     e.preventDefault();
     
     try {
         const res = await axios.post(
-            `${process.env.REACT_APP_API}/api/v1/auth/register`,{name,
+            `${process.env.REACT_APP_API}/api/v1/auth/login`,{
             email,
             password,
-            phone,
-            address}
+            }
         );
-        if(res.data.success){
-            toast.success(res.data.message);
-            navigate("/login");
+        if(res && res.data.success){
+            toast.success(res.data && res.data.message);
+            navigate("/");
         }else{
             toast.error(res.data.message)
       }
@@ -35,18 +32,11 @@ const handleSubmit = async(e) =>{
         toast.error('Something went wrong')
     }
 }
-
   return (
     <Layout title={"Register/Sign Up - i2Eye"}>
         <div className='form-container'>
         <form onSubmit={handleSubmit}>
-            <h3>Register </h3>
-            <div className="mb-3">
-                <input type="text" value={name} 
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="form-control" id="exampleInputEmail1" placeholder='Enter Your Name'/>
-            </div>
+            <h3>Login </h3>
             <div className="mb-3">
                 <input type="email" value={email} 
                 onChange={(e) => setEmail(e.target.value)}
@@ -59,19 +49,8 @@ const handleSubmit = async(e) =>{
                 required
                 className="form-control" id="exampleInputPassword1"  placeholder='Enter Your Password'/>
             </div>
-            <div className="mb-3">
-                <input type="text" value={phone} 
-                onChange={(e) => setPhone(e.target.value)}
-                required
-                className="form-control" id="exampleInputEmail1"  placeholder='Enter Your Phone Number'/>
-            </div>
-            <div className="mb-3">
-                <input type="text" value={address} 
-                onChange={(e) => setAddress(e.target.value)}
-                required
-                className="form-control" id="exampleInputEmail1"  placeholder='Enter Your Address'/>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            
+            <button type="submit" className="btn btn-primary">LOGIN</button>
         </form>
 
         </div>
@@ -79,4 +58,4 @@ const handleSubmit = async(e) =>{
   )
 }
 
-export default Register
+export default Login

@@ -4,13 +4,13 @@ import { useAuth } from '../context/auth';
 
 const HomePage = () => {
 
-  const [auth,setAuth] = useAuth()
+  const [auth,setAuth] = useAuth();
   return (
     <Layout title={"Home Page - i2Eye"}>
         <h1>HomePage</h1>
         <pre>{JSON.stringify(auth,null,4)}</pre>
     </Layout>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

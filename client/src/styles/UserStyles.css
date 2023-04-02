@@ -1,0 +1,16 @@
+.list-group-item{
+    background-color: white !important;
+    color: black !important;
+    border: 0px solid white !important; 
+    
+}
+
+.list-group-item:hover{
+    background-color: darkcyan !important;
+    color: white !important;
+    border: 1px solid white !important;
+}
+
+#heading, h4{
+    color: white;
+}

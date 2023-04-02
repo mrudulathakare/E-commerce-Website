@@ -1,16 +1,17 @@
 import React,{useState} from 'react'
-import Layout from './../../components/Layout/Layout';
+import Layout from '../../components/Layout/Layout';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
 import "../../styles/AuthStyles.css";
 const Register = () => {
-    const [name,setName] = useState("")
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
-    const [phone,setPhone] = useState("")
-    const [address,setAddress] = useState("")
-    const navigate = useNavigate()
+    const [name,setName] = useState("");
+    const [email,setEmail] = useState("");
+    const [password,setPassword] = useState("");
+    const [phone,setPhone] = useState("");
+    const [address,setAddress] = useState("");
+    const [answer,setAnswer] = useState("");
+    const navigate = useNavigate();
 
 // form function
 const handleSubmit = async(e) =>{
@@ -22,10 +23,11 @@ const handleSubmit = async(e) =>{
             email,
             password,
             phone,
-            address}
+            address,
+            answer}
         );
-        if(res.data.success){
-            toast.success(res.data.message);
+        if(res && res.data.success){
+            toast.success(res.data && res.data.message);
             navigate("/login");
         }else{
             toast.error(res.data.message)
@@ -34,7 +36,7 @@ const handleSubmit = async(e) =>{
         console.log(error)
         toast.error('Something went wrong')
     }
-}
+};
 
   return (
     <Layout title={"Register/Sign Up - i2Eye"}>
@@ -71,12 +73,18 @@ const handleSubmit = async(e) =>{
                 required
                 className="form-control" id="exampleInputEmail1"  placeholder='Enter Your Address'/>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <div className="mb-3">
+                <input type="text" value={answer} 
+                onChange={(e) => setAnswer(e.target.value)}
+                required
+                className="form-control" id="exampleInputEmail1"  placeholder='What is your birth month?'/>
+            </div>
+            <button type="submit" className="btn btn-primary">SUBMIT</button>
         </form>
 
         </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
